@@ -1,5 +1,5 @@
 # Coral Analysis via various methods
-This repo showcases a various of tradiontial computer vision methods, unsupervised learning methods and deep learning methods for coral skeletal image segmentation.<br/>
+This repo showcases a various of tradiontial computer vision methods, unsupervised learning methods and deep learning models for coral skeletal image segmentation.<br/>
 The dataset is downloaded from the original repo by [Ainsley Rutterford](https://github.com/ainsleyrutterford/deep-learning-coral-analysis/blob/master/README.md) who implemented U-Net with keras 
 ## Traditional Computer Vision methods:
 [Traditional CV/histogram_based.py](https://github.com/SimonZeng7108/Coral_Analysis/tree/main/Traditional%20CV): A histogram thresholding based segmentation<br/>
