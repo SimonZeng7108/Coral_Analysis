@@ -27,4 +27,5 @@ The dataset is downloaded from the original repo by [Ainsley Rutterford](https:/
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/image_denoised.jpg" width="300" height="300">
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Unsupervised%20Learning/GMM.png" width="300" height="300"><br/>
 
+## Deep Learning Models:
 <sup></sup>
