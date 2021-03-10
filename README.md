@@ -32,7 +32,7 @@ The dataset is downloaded from the original repo by [Ainsley Rutterford](https:/
 <br/>
 
 
-This UNet implementation is rather a vanilla model, there is no BatchNorm, DropOut utilised. If one follow the original paper strictly, there will be a conflict betweent input and output sizes(572 to 388). To avoid label and prediction mismatch in this implementatino, a resize function has been applied after every up-convolution in expansive path and at final output layer.<br/>
+note: This UNet implementation is rather a vanilla model, there is no BatchNorm, DropOut utilised. If one follow the original paper strictly, there will be a conflict betweent input and output sizes(572 to 388). To avoid label and prediction mismatch in this implementatino, a resize function has been applied after every up-convolution in expansive path and at final output layer.<br/>
 
 ## Repository overview
 [data/training/](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/tree/main/data/training): Stores all the unsplited training data <br/>
@@ -55,6 +55,10 @@ This UNet implementation is rather a vanilla model, there is no BatchNorm, DropO
 - `matplotlib`
 - `PIL`
 
-##main.py workflow
+## [main.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/main.py) workflow
+The main.py file is the only file needs to be run and other utils will be import to here
 
+```
+Parameters
+```
 
