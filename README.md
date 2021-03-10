@@ -59,8 +59,43 @@ note: This UNet implementation is rather a vanilla model, there is no BatchNorm,
 The main.py file is the only file needs to be run and other utils will be import to here
 
 ```
-Parameters
+Set Parameters
 ```
 Set the paramers for path to `train/image`, `train/label`, `test/image`, `test/label` and `save_model`; also change the `h,w` for input image, which `model` to use, numbers of `epochs` to run, `batch_size`, `learning rate` and learning rate scheduler `dropping rate` for the optimizer
 
+```
+Data Augmentation
+```
+Defined a series of data transformation can be called upon dataloading
+
+```
+Dataset Loader
+```
+Call the customised `dataset.py` to meet pytorch `DataLoader` standard
+
+```
+Load Model
+```
+Load the prebuilt models as choice from parameters
+
+```
+Load Loss Function
+```
+Import the predefined `loss_function`, the loss function is the sum of BCELoss and Dice loss, the metrics is the Dice Coefficient.
+
+```
+Define Optimizer and Scheduler
+```
+An Adam optimiser is used with a learning rate scheduler when the loss plateaus
+
+
+```
+Trainer
+```
+load the pre-defined trainer function with parameteres set previously
+
+```
+Plots
+```
+Plot the graph for `Loss vs Epochs` and `Accuracy vs Epochs`
 
