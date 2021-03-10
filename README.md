@@ -90,7 +90,7 @@ An Adam optimiser is used with a learning rate scheduler when the loss plateaus
 
 
 ```
-Trainer
+Load Trainer
 ```
 load the pre-defined trainer function with parameteres set previously
 
