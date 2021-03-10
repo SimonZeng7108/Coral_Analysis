@@ -61,4 +61,4 @@ The main.py file is the only file needs to be run and other utils will be import
 ```
 Parameters
 ```
-
+Set the paramers for path to - `train/image`, - `train/label`, - `test/image`, - `test/label` and - `save_model`; also change the - `h,w` for input image, which - `model` to use, numbers of - `epochs` to run, - `batch_size`, - `learning rate` and learning rate scheduler - `dropping rate` for the optimizer
