@@ -28,10 +28,11 @@ The dataset is downloaded from the original repo by [Ainsley Rutterford](https:/
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Unsupervised%20Learning/GMM.png" width="300" height="300"><br/>
 
 ## Deep Learning Models:
-This UNet implementation is rather a vanilla model, there is no BatchNorm, DropOut utilised. If one follow the original paper strictly, there will be a conflict betweent input and output sizes(572 to 388). To avoid label and prediction mismatch in this implementatino, a resize function has been applied after every up-convolution in expansive path and at final output layer.<br/>
 <sup>This implementation is mostly based on my [Fetal_Segmentation](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch) repo.</sup>
 <br/>
 
+
+This UNet implementation is rather a vanilla model, there is no BatchNorm, DropOut utilised. If one follow the original paper strictly, there will be a conflict betweent input and output sizes(572 to 388). To avoid label and prediction mismatch in this implementatino, a resize function has been applied after every up-convolution in expansive path and at final output layer.<br/>
 
 
 
