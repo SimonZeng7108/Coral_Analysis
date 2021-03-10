@@ -98,8 +98,10 @@ load the pre-defined trainer function with parameteres set previously
 Plots
 ```
 Plot the graph for `Loss vs Epochs` and `Accuracy vs Epochs`
-Expectation:
+## Results(Unfinished)
+
+Expectation:<br/>
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/Figure_2.png" width="534" height="172"><br/>
-Reality:
+Reality:<br/>
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/Figure_1.png" width="534" height="172">
 
