@@ -76,12 +76,12 @@ Call the customised `dataset.py` to meet pytorch `DataLoader` standard
 ```
 Load Model
 ```
-Load the prebuilt models as choice from parameters
+Load the pre-built models as a choice from parameters
 
 ```
 Load Loss Function
 ```
-Import the predefined `loss_function`, the loss function is the sum of BCELoss and Dice loss, the metrics is the Dice Coefficient.
+Import the pre-defined `loss_function`, the loss function is the sum of BCELoss and Dice loss, the metrics is the Dice Coefficient.
 
 ```
 Define Optimizer and Scheduler
