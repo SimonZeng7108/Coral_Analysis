@@ -8,11 +8,6 @@ path2train_label="./data/train_set/label" #Path of train label
 path2test_image="./data/test_set/image" #Path of test image
 path2test_label="./data/test_set/label" #Path of test label
 
-# path2train_image="./membrane/train/image" #Path of train image
-# path2train_label="./membrane/train/label" #Path of train label
-# path2test_image="./membrane/test/image" #Path of test image
-# path2test_label="./membrane/test/label" #Path of test label
-
 path2models= "./models/"            #Path to save best weight
 h,w= 256,256                        #Input shape
 model = UNet()                      #Options: UNet(), SegNet()
