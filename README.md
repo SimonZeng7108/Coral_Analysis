@@ -102,9 +102,9 @@ Plot the graph for `Loss vs Epochs` and `Accuracy vs Epochs`
 
 ## Results(Unfinished)
 
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo1.png" width="534" height="172"><br/>
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo1.png" width="640" height="177"><br/>
 
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="534" height="172">
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="640" height="177">
 
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coralacc.png" width="320" height="240">
 
