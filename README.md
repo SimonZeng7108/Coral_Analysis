@@ -39,6 +39,7 @@ note: This UNet implementation is rather a vanilla model, there is no BatchNorm,
 [data/test_set](https://github.com/SimonZeng7108/Coral_Analysis/tree/main/Deep%20Learning/data/test_set): Stores all data for prediction use <br/>
 [model]: Stores the best weight model generated after training<br/>
 [runs]: Stores the log file for tensorboard<br/>
+[Image Augmentation.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/Image%20Augmentation.py): A script generates more images using various transformations
 [main.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/main.py): The main script imports dataset, trainer, loss functions to run the model <br/>
 [dataset.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/dataset.py): Customise a dataset to process the trainig images <br/>
 [model.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/model.py): Construct the SegNet and UNet model <br/>
@@ -55,6 +56,9 @@ note: This UNet implementation is rather a vanilla model, there is no BatchNorm,
 - `skimage`
 - `matplotlib`
 - `PIL`
+
+## Image Augmentation
+Image Augmentation is recommonded to be performed in local directory for best performance. Use [Image Augmentation.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/Image%20Augmentation.py) to generate images and corresponding lables.
 
 ## [main.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/main.py) workflow
 The main.py file is the only file needs to be run and other utils will be import to here
@@ -100,14 +104,14 @@ Plots
 ```
 Plot the graph for `Loss vs Epochs` and `Accuracy vs Epochs`
 
-## Results(Unfinished)
-
+## Results
+Prediction demo 1:
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo1.png" width="640" height="177"><br/>
-
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="640" height="177">
-
+prediction demo 2:
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="640" height="177"><br/>
+Accuracy plot
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coralacc.png" width="320" height="240">
-
+Loss plot
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/corallose.png" width="320" height="240">
 
 
