@@ -3,18 +3,13 @@ import os
 import torch
 from model import UNet, SegNet
 #Set parameters
-path2train_image="./data/train_set/image" #Path of train image
-path2train_label="./data/train_set/label" #Path of train label
-path2test_image="./data/test_set/image" #Path of test image
-path2test_label="./data/test_set/label" #Path of test label
-
+path2train="./data/training"          #Path of train image
 path2models= "./models/"            #Path to save best weight
-h,w= 256,256                        #Input shape
-model = UNet()                      #Options: UNet(), SegNet()
+h,w= 240,240                        #Input shape
+model = UNet()                    #Options: UNet(), SegNet()
 epochs = 150                        #Number of training iterations
-batch_size = 8                      #Set batch size for dataloader
-lr=1e-5                             #Optimiser learning rate
-factor=0.5                          #Schedule learning rate drop rate
+lr=1e-4                             #Optimiser learning rate
+factor=0.2                          #Schedule learning rate drop rate
 
 
 #Define data augmentation
@@ -25,17 +20,30 @@ transform_train = Compose([
     HorizontalFlip(p=0.5), 
     VerticalFlip(p=0.5),
 ])
-transform_test = Resize(h,w)
+transform_val = Resize(h,w)
 
 #Load dataset
-from dataset import coral_dataset
-train_ds = coral_dataset(path2train_image, path2train_label, transform=transform_train)
-test_ds = coral_dataset(path2test_image, path2test_label, transform=transform_test)
+from dataset import fetal_dataset
+fetal_ds1=fetal_dataset(path2train, transform=transform_train)
+fetal_ds2=fetal_dataset(path2train, transform=transform_val)
 
-#Create dataLoader
+#Split data into train validation
+from sklearn.model_selection import ShuffleSplit
+from torch.utils.data import Subset
+sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=0)
+indices=range(len(fetal_ds1))
+
+for train_index, val_index in sss.split(indices):
+    pass
+
+train_ds=Subset(fetal_ds1,train_index)
+val_ds=Subset(fetal_ds2,val_index)
+
+#Create DataLoader
 from torch.utils.data import DataLoader
-train_dl = DataLoader(train_ds, batch_size = batch_size, shuffle=False)
-test_dl = DataLoader(test_ds, batch_size = batch_size, shuffle=False) 
+train_dl = DataLoader(train_ds, batch_size=8, shuffle=False)
+val_dl = DataLoader(val_ds, batch_size=8, shuffle=False) 
+
 
 #Load model
 import torch
@@ -44,6 +52,19 @@ model = model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model=model.to(device)
 summary(model, input_size=(1, h, w))
+
+
+#tensorboard
+from torch.utils.tensorboard import SummaryWriter
+import torchvision
+import copy
+tb = SummaryWriter()
+images, labels = next(iter(train_dl))
+grid = torchvision.utils.make_grid(images)
+tb.add_image("images", grid)
+sample_images = copy.deepcopy(images)
+sample_images = sample_images.to('cuda')
+tb.add_graph(model, sample_images)
 
 #Load Loss Function
 from loss_functions import loss_func
@@ -63,7 +84,7 @@ params_train={
     "optimizer": opt,
     "loss_func": loss_func,
     "train_dl": train_dl,
-    "val_dl": test_dl,
+    "val_dl": val_dl,
     "lr_scheduler": lr_scheduler,
     "path2weights": path2models+"weights.pt",
 }
@@ -90,3 +111,4 @@ plt.xlabel("Training Epochs")
 plt.legend()
 plt.show()
 
+tb.close()

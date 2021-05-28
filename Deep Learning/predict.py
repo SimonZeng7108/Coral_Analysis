@@ -1,21 +1,21 @@
-
+#%%
 import os
 import numpy as np
 import torch
 
-#Set parameters
-path2predict="./data/predict_set/"
+
+path2test="./data/test_set/"
 path2weights="./models/weights.pt"
-h,w=256,256
+h,w=192,192
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-imgsList=[pp for pp in os.listdir(path2predict)]
+imgsList=[pp for pp in os.listdir(path2test) if "Annotation" not in pp]
 print("number of images:", len(imgsList))
-rndImg=np.random.choice(imgsList , 1)
+rndImg=np.random.choice(imgsList,1)
 print(rndImg)
 
 #Load model
-from model import UNet
+from model import SegNet, UNet
 params_model={
         "input_shape": (1,h,w),
         "initial_filters": 16, 
@@ -30,16 +30,15 @@ from torchvision.transforms.functional import to_tensor
 model.load_state_dict(torch.load(path2weights))
 model.eval()
 
-path2img = os.path.join(path2predict, rndImg[0])
+path2img = os.path.join(path2test, rndImg[0])
 img = Image.open(path2img)
 img=img.resize((w,h))
 img_t=to_tensor(img).unsqueeze(0).to(device)
 
-
 pred=model(img_t)
-print(pred.max())
-pred=torch.sigmoid(pred)[0].detach().to('cpu')
-# mask_pred= (pred[0]>=0.1).to('cpu')
+pred=torch.sigmoid(pred)[0]
+mask_pred= (pred[0]>=0.5).to('cpu')
+
 
 #Plot the graph
 #Define a show mask on image function
@@ -47,6 +46,8 @@ from torchvision.transforms.functional import to_pil_image
 from skimage.segmentation import mark_boundaries
 def show_img_mask(img, mask): 
     if torch.is_tensor(img):
+        # img = img.to('cpu')
+        # mask = mask.to('cpu')
         img=to_pil_image(img)
         mask=to_pil_image(mask)
 
@@ -61,12 +62,14 @@ def show_img_mask(img, mask):
 import matplotlib.pylab as plt
 plt.figure()
 plt.subplot(1, 3, 1) 
+plt.axis('off')
 plt.imshow(img, cmap="gray")
 
-pred = to_pil_image(pred)
 plt.subplot(1, 3, 2) 
-plt.imshow(pred, cmap="gray")
+plt.axis('off')
+plt.imshow(mask_pred, cmap="gray")
 
 plt.subplot(1, 3, 3) 
-show_img_mask(img, pred)
+plt.axis('off')
+show_img_mask(img, mask_pred)
 plt.show()
