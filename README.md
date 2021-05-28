@@ -109,9 +109,9 @@ Prediction demo 1:<br/>
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo1.png" width="640" height="177"><br/>
 prediction demo 2:<br/>
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="640" height="177"><br/>
-Accuracy plot<br/>
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coralacc.png" width="320" height="240">
-Loss plot<br/>
+Accuracy plot:<br/>
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coralacc.png" width="320" height="240"><br/>
+Loss plot:<br/>
 <img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/corallose.png" width="320" height="240">
 
 
