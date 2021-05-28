@@ -35,15 +35,16 @@ The dataset is downloaded from the original repo by [Ainsley Rutterford](https:/
 note: This UNet implementation is rather a vanilla model, there is no BatchNorm, DropOut utilised. If one follow the original paper strictly, there will be a conflict betweent input and output sizes(572 to 388). To avoid label and prediction mismatch in this implementatino, a resize function has been applied after every up-convolution in expansive path and at final output layer.<br/>
 
 ## Repository overview
-[data/training/](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/tree/main/data/training): Stores all the unsplited training data <br/>
-[data/test_set](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/tree/main/data/test_set): Stores all data for prediction use <br/>
-[model/weights.pt](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/models/weights.pt): Stores the best weight model generated after training<br/>
-[main.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/main.py): The main script imports dataset, trainer, loss functions to run the model <br/>
-[dataset.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/dataset.py): Customise a dataset to process the trainig images <br/>
-[model.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/model.py): Construct the SegNet and UNet model <br/>
-[train.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/train.py): The trainer to run epochs <br/>
-[loss_functions.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/loss_functions.py): Define the dice loss + BCElogits loss function <br/>
-[predict.py](https://github.com/SimonZeng7108/Fetal_Segmentation_Pytorch/blob/main/predict.py): Script to predict unlabeld images <br/>
+[data/train set](https://github.com/SimonZeng7108/Coral_Analysis/tree/main/Deep%20Learning/data/train_set): Stores all the unsplited training data <br/>
+[data/test_set](https://github.com/SimonZeng7108/Coral_Analysis/tree/main/Deep%20Learning/data/test_set): Stores all data for prediction use <br/>
+[model]: Stores the best weight model generated after training<br/>
+[runs]: Stores the log file for tensorboard<br/>
+[main.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/main.py): The main script imports dataset, trainer, loss functions to run the model <br/>
+[dataset.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/dataset.py): Customise a dataset to process the trainig images <br/>
+[model.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/model.py): Construct the SegNet and UNet model <br/>
+[train.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/train.py): The trainer to run epochs <br/>
+[loss_functions.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/loss_functions.py): Define the dice loss + BCElogits loss function <br/>
+[predict.py](https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/predict.py): Script to predict unlabeld images <br/>
 
 ## Requirements 
 - `torch == 1.8.0`
@@ -100,8 +101,13 @@ Plots
 Plot the graph for `Loss vs Epochs` and `Accuracy vs Epochs`
 
 ## Results(Unfinished)
-Expectation:<br/>
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/expectation.png" width="534" height="172"><br/>
-Reality:<br/>
-<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/results.png" width="534" height="172">
+
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo1.png" width="534" height="172"><br/>
+
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coraldemo2.png" width="534" height="172">
+
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/coralacc.png" width="320" height="240">
+
+<img src="https://github.com/SimonZeng7108/Coral_Analysis/blob/main/Deep%20Learning/UNet%20results/corallose.png" width="320" height="240">
+
 
