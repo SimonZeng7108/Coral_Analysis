@@ -5,9 +5,9 @@ from model import UNet, SegNet
 #Set parameters
 path2train="./data/training"          #Path of train image
 path2models= "./models/"            #Path to save best weight
-h,w= 240,240                        #Input shape
+h,w= 240,240                       #Input shape
 model = UNet()                    #Options: UNet(), SegNet()
-epochs = 150                        #Number of training iterations
+epochs = 200                       #Number of training iterations
 lr=1e-4                             #Optimiser learning rate
 factor=0.2                          #Schedule learning rate drop rate
 
@@ -23,21 +23,21 @@ transform_train = Compose([
 transform_val = Resize(h,w)
 
 #Load dataset
-from dataset import fetal_dataset
-fetal_ds1=fetal_dataset(path2train, transform=transform_train)
-fetal_ds2=fetal_dataset(path2train, transform=transform_val)
+from dataset import coral_dataset
+coral_ds1=coral_dataset(path2train, transform=transform_train)
+coral_ds2=coral_dataset(path2train, transform=transform_val)
 
 #Split data into train validation
 from sklearn.model_selection import ShuffleSplit
 from torch.utils.data import Subset
 sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=0)
-indices=range(len(fetal_ds1))
+indices=range(len(coral_ds1))
 
 for train_index, val_index in sss.split(indices):
     pass
 
-train_ds=Subset(fetal_ds1,train_index)
-val_ds=Subset(fetal_ds2,val_index)
+train_ds=Subset(coral_ds1,train_index)
+val_ds=Subset(coral_ds2,val_index)
 
 #Create DataLoader
 from torch.utils.data import DataLoader

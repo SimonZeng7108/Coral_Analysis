@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 
 path2train="./data/training"
 
-class fetal_dataset(Dataset):
+class coral_dataset(Dataset):
     def __init__(self, path2data, transform=None):      
 
         imgsList=[pp for pp in os.listdir(path2data) if "Annotation" not in pp]

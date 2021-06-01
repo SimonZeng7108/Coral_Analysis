@@ -4,9 +4,9 @@ import numpy as np
 import torch
 
 
-path2test="./data/test_set/"
+path2test="./data/test_set/test/"
 path2weights="./models/weights.pt"
-h,w=192,192
+h,w=240,240
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 imgsList=[pp for pp in os.listdir(path2test) if "Annotation" not in pp]
